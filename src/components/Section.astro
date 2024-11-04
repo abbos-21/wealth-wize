@@ -10,8 +10,8 @@ interface SectionProps {
 }
 ---
 
-<main id="#about">
-  <div class="container text-white">
+<main>
+  <div class="container text-white position-relative">
     <div class="row justify-content-between flex-lg-row flex-column">
       <div class="col-lg-5 col-12">
         <p class="title">About Us</p>
@@ -21,20 +21,32 @@ interface SectionProps {
           experienced team is dedicated to helping you navigate financial
           reporting, tax compliance, and strategic planning.
         </p>
-        <p class="subtitle">
+        <p class="subtitle subtitle-2">
           We empower our clients with accurate insights and efficient systems,
           allowing them to focus on growing their business. Whether you're a
           startup or an established company, WealthWize is here to support your
           financial goals and ensure your success.
         </p>
-
-        <div class="mt-4">
+        <!-- 
+        <div class="mt-4 position-absolute bottom-0 start-0 button-wrapper">
           <Button label="Contact with us" variant="filled" />
+        </div> -->
+
+        <div class="inverted-border-radius position-absolute bottom-0"></div>
+
+        <div class="helper-1"></div>
+        <div class="helper-2"></div>
+        <div class="helper-22">
+          <div class="w-100 h-100 me-auto position-relative">
+            <div class="position-absolute bottom-0 left-0">
+              <Button label="Contact with us" variant="filled" />
+            </div>
+          </div>
         </div>
       </div>
 
       <div
-        class="col-lg-6 col-12 d-flex justify-content-center align-items-start vid mt-lg-0 mt-5"
+        class="col-lg-6 col-12 d-flex justify-content-center align-items-start vid mb-lg-0 mb-5"
       >
         <video width="100%" autoplay muted loop>
           <source src="video1.mp4" type="video/mp4" />
@@ -49,9 +61,11 @@ interface SectionProps {
   .container {
     background-color: var(--primary-color);
     border-radius: 30px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 3rem;
     margin-top: 100px;
-    margin-bottom: 100px;
     padding: 100px;
+    padding-bottom: 0;
   }
 
   .title {
@@ -66,17 +80,59 @@ interface SectionProps {
     font-weight: 400;
   }
 
+  .subtitle-2 {
+    margin-bottom: 100px;
+  }
+
   /* .vid {
     background-color: #75b3ce;
     border-radius: 15px;
   } */
 
+  .helper-1 {
+    width: calc(100% - 219.18px);
+    height: 85px;
+    position: absolute;
+    right: 0;
+    bottom: -85px;
+    background-color: var(--primary-color);
+    border-bottom-right-radius: 3rem;
+    border-bottom-left-radius: 3rem;
+  }
+
+  .helper-2 {
+    width: 219.18px;
+    height: 85px;
+    background-color: var(--primary-color);
+    position: absolute;
+    bottom: -85px;
+    left: 0;
+  }
+
+  .helper-22 {
+    width: 219.18px;
+    height: 85px;
+    background: #e1e3e5;
+    position: absolute;
+    bottom: -85px;
+    left: 0;
+    border-top-right-radius: 3rem;
+  }
+
+  @media only screen and (max-width: 991px) {
+    .subtitle-2 {
+      margin-bottom: 0;
+    }
+  }
+
   @media only screen and (max-width: 767px) {
     .container {
-      margin-top: 50px;
-      margin-bottom: 50px;
       padding: 50px;
-      border-radius: 20px;
+      padding-bottom: 0;
+    }
+
+    .subtitle-2 {
+      margin-bottom: 0;
     }
   }
 
@@ -85,7 +141,12 @@ interface SectionProps {
       margin-top: 0;
       margin-bottom: 0;
       padding: 25px;
+      padding-bottom: 0;
       border-radius: 0;
+    }
+
+    .helper-1 {
+      border-bottom-right-radius: 0;
     }
   }
 </style>

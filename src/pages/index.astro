@@ -3,18 +3,23 @@ import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Section from "../components/Section.astro";
 import Section2 from "../components/Section2.astro";
+import Cards from "../components/Cards.astro";
 ---
 
 <Layout title="Welcome to WealthWize!">
   <main>
     <Header />
-    <Section />
+    <div id="about">
+      <Section />
+    </div>
     <Section2 />
+    <Cards />
   </main>
 </Layout>
 
 <style>
   main {
     /* background-color: #f2f3f7; */
+    background: #e1e3e5;
   }
 </style>
