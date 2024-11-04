@@ -1,0 +1,71 @@
+---
+const { label, type = "button", variant = "primary" } = Astro.props;
+
+const classMap: { [key: string]: string } = {
+  primary: "btn button",
+  outline: "btn button-outline",
+  filled: "btn button-filled",
+};
+
+const buttonClass =
+  classMap[variant as keyof typeof classMap] || classMap.primary;
+---
+
+<button type={type} class={buttonClass}>
+  {label}
+</button>
+
+<style>
+  .button {
+    padding: 0 31px;
+    font-size: 17px;
+    line-height: 64px;
+    font-weight: 500;
+    color: var(--button-text-color);
+    background-color: white;
+    border-radius: 9999px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .button:hover {
+    background-color: var(--secondary-color);
+    color: white;
+  }
+
+  .button-outline {
+    padding: 0 31px;
+    font-size: 17px;
+    line-height: 64px;
+    font-weight: 500;
+    color: white;
+    background-color: transparent;
+    border: 1px solid var(--secondary-color);
+    border-radius: 9999px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .button-outline:hover {
+    background-color: var(--secondary-color);
+    color: white;
+  }
+
+  .button-filled {
+    padding: 0 31px;
+    font-size: 17px;
+    line-height: 64px;
+    font-weight: 500;
+    color: white;
+    background-color: var(--secondary-color);
+    border-radius: 9999px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+</style>
