@@ -1,0 +1,98 @@
+---
+import Button from "./ui/Button.astro";
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<main>
+  <div class="container">
+    <div class="row title justify-content-center">{title}</div>
+
+    <div class="row mt-5 justify-content-between">
+      <div class="col-lg-5 col-12">
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            placeholder="John Doe"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email address</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            placeholder="johndoe@example.com"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="select" class="form-label">How did you get us?</label>
+          <select id="select" class="form-select" aria-label="">
+            <option selected>Select</option>
+            <option value="friend">A friend of mine told me</option>
+            <option value="social-media">Social media</option>
+            <option value="google">Google</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label for="tel" class="form-label">Phone number</label>
+          <input type="tel" class="form-control" id="tel" value="+998" />
+        </div>
+        <div class="mb-4">
+          <label for="message" class="form-label">Message</label>
+          <textarea class="form-control" id="message" rows="5"></textarea>
+        </div>
+
+        <Button label="Submit" type="submit" variant="filled" />
+      </div>
+
+      <div
+        class="col-lg-6 mt-lg-0 mt-4 border d-flex justify-content-center align-items-center"
+      >
+        <span>Rasm</span>
+      </div>
+    </div>
+  </div>
+</main>
+
+<style>
+  .title {
+    font-size: 42px;
+    line-height: 48px;
+    font-weight: 600;
+    color: var(--button-text-color);
+  }
+
+  .row.mt-5 {
+    background-color: var(--primary-color);
+    padding: 100px;
+    border-radius: 3rem;
+  }
+
+  .vid {
+    border-radius: 1rem;
+    transform: rotateZ(-90deg);
+  }
+
+  @media only screen and (max-width: 767px) {
+    .row.mt-5 {
+      padding: 50px;
+    }
+  }
+
+  @media only screen and (max-width: 575px) {
+    .row.mt-5 {
+      padding: 25px;
+      border-radius: 0;
+    }
+  }
+</style>

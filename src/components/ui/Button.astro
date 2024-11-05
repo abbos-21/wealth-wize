@@ -1,4 +1,10 @@
 ---
+interface Props {
+  label: string;
+  type?: "submit" | "button" | "reset" | null | undefined;
+  variant?: string;
+}
+
 const { label, type = "button", variant = "primary" } = Astro.props;
 
 const classMap: { [key: string]: string } = {
