@@ -2,24 +2,65 @@
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Section from "../components/Section.astro";
-import Section2 from "../components/Section2.astro";
-import Cards from "../components/Cards.astro";
+import CardContainer from "../components/CardContainer.astro";
+import Card from "../components/Card.astro";
+import Contact from "../components/Contact.astro";
 ---
 
 <Layout title="Welcome to WealthWize!">
   <main>
     <Header />
-    <div id="about">
-      <Section />
-    </div>
-    <Section2 />
-    <Cards />
+    <Section
+      title="About Us"
+      subtitle="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium, vero ab eum laudantium eligendi quo, libero eveniet corporis perferendis dolore quod earum ipsam ipsum asperiores?"
+      secondSubtitle="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium, vero ab eum laudantium eligendi quo, libero eveniet corporis perferendis dolore quod earum ipsam ipsum asperiores?"
+      media="video1.mp4"
+      mediaType="video"
+    />
+    <Section
+      style="margin-top: 200px;"
+      type="reversed"
+      title="Lorem ipsum"
+      subtitle="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium, vero ab eum laudantium eligendi quo, libero eveniet corporis perferendis dolore quod earum ipsam ipsum asperiores?"
+      secondSubtitle="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium, vero ab eum laudantium eligendi quo, libero eveniet corporis perferendis dolore quod earum ipsam ipsum asperiores?"
+      media="video2.mp4"
+      mediaType="video"
+    />
+
+    <CardContainer
+      title="Our Services"
+      style="margin-top: 200px; margin-bottom: 100px;"
+    >
+      <Card
+        title="Card title"
+        subtitle="Some quick example text to build on the card title and make up the bulk of the card's content."
+        media="video3.mp4"
+        mediaType="video"
+        buttonLabel="Learn more"
+      />
+
+      <Card
+        title="Card title"
+        subtitle="Some quick example text to build on the card title and make up the bulk of the card's content."
+        media="video4.mp4"
+        mediaType="video"
+        buttonLabel="Learn more"
+      />
+
+      <Card
+        title="Card title"
+        subtitle="Some quick example text to build on the card title and make up the bulk of the card's content."
+        media="video5.mp4"
+        mediaType="video"
+        buttonLabel="Learn more"
+      />
+    </CardContainer>
+    <Contact title="Contact Us" />
   </main>
 </Layout>
 
 <style>
   main {
-    /* background-color: #f2f3f7; */
     background: #e1e3e5;
   }
 </style>

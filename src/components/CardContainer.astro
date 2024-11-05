@@ -1,0 +1,30 @@
+---
+import type { JSX } from "astro/jsx-runtime";
+
+interface Props {
+  title: string;
+  style?: string;
+}
+
+const { title, style } = Astro.props;
+---
+
+<main style={style}>
+  <div class="container">
+    <div class="row title justify-content-center">
+      {title}
+    </div>
+    <div class="row mt-5">
+      <slot />
+    </div>
+  </div>
+</main>
+
+<style>
+  .title {
+    font-size: 42px;
+    line-height: 48px;
+    font-weight: 600;
+    color: var(--button-text-color);
+  }
+</style>

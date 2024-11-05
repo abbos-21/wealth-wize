@@ -28,6 +28,8 @@ import "../assets/base.css";
     <title>{title}</title>
   </head>
   <body>
+    <!-- contenteditable="true" -->
+
     <slot />
 
     <script>
@@ -41,5 +43,9 @@ import "../assets/base.css";
     padding: 0;
     box-sizing: border-box;
     font-family: "Montserrat", sans-serif;
+  }
+
+  html {
+    background: #e1e3e5;
   }
 </style>
