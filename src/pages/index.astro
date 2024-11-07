@@ -5,9 +5,11 @@ import Section from "../components/Section.astro";
 import CardContainer from "../components/CardContainer.astro";
 import Card from "../components/Card.astro";
 import Contact from "../components/Contact.astro";
+import Footer from "../components/Footer.astro";
+import LogoWall from "../components/LogoWall.astro";
 ---
 
-<Layout title="Welcome to WealthWize!">
+<Layout title="WEALTHWISE">
   <main>
     <Header />
     <Section
@@ -55,12 +57,18 @@ import Contact from "../components/Contact.astro";
         buttonLabel="Learn more"
       />
     </CardContainer>
-    <Contact title="Contact Us" />
+
+    <LogoWall />
+
+    <Contact title="Contact Us" style="margin-top: 200px;" />
+
+    <Footer style="margin-top: 100px" />
   </main>
 </Layout>
 
 <style>
   main {
-    background: #e1e3e5;
+    /* background: #e1e3e5; */
+    background: var(--background-color);
   }
 </style>

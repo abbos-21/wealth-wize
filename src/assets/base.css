@@ -1,6 +1,34 @@
-:root {
-  /* --primary-color: #042b56; */
+/* :root {
+  --primary-color: #042b56;
   --primary-color: #75b3ce;
+  --primary-color: #eadabd;
   --secondary-color: #ffa500;
+  --secondary-color: navy;
   --button-text-color: #323555;
+} */
+
+:root {
+  --block-color: #eadabd;
+  --background-color: #fcedd3;
+  --primary-color: navy;
+  --text-color: #323555;
 }
+
+/* :root {
+  --secondary-color: navy;
+  --primary-color: papayawhip;
+  --color-bg-accent: #ecdcc0;
+  --size: clamp(10rem, 1rem + 40vmin, 30rem);
+  --gap: calc(var(--size) / 14);
+  --duration: 60s;
+  --scroll-start: 0;
+  --scroll-end: calc(-100% - var(--gap));
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-text: papayawhip;
+    --color-bg: navy;
+    --color-bg-accent: #2626a0;
+  }
+} */

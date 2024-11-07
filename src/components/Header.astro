@@ -17,10 +17,10 @@ const data = await response.json();
 
 <main class="d-flex flex-column">
   <nav class="navbar navbar-dark navbar-expand-lg py-5 position-relative">
-    <div class="position-absolute w-100 bg-dark top-0 text-white py-1">
+    <div class="position-absolute w-100 header top-0 py-1">
       <div class="container d-flex justify-content-between">
         <a href="tel:+998946667410" class="text-decoration-none tel"
-          ><span class="text-white">Tel: </span>+998 94 666 74 10</a
+          ><span class="text-dark">Tel: </span>+998 94 666 74 10</a
         >
 
         <div class="d-flex align-items-center gap-2 rate">
@@ -37,7 +37,7 @@ const data = await response.json();
       </div>
     </div>
     <div class="container">
-      <a class="navbar-brand" href="#">WealthWize</a>
+      <a class="navbar-brand" href="#">WEALTHWISE</a>
       <button
         class="navbar-toggler"
         type="button"
@@ -75,14 +75,14 @@ const data = await response.json();
 
           <div class="dropdown">
             <button
-              class="btn btn-warning dropdown-toggle"
+              class="btn btn-primary dropdown-toggle"
               type="button"
               data-bs-toggle="dropdown"
               aria-expanded="false"
             >
               EN
             </button>
-            <ul class="dropdown-menu bg-dark">
+            <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="#">UZ</a></li>
               <li><a class="dropdown-item" href="#">RU</a></li>
               <li><a class="dropdown-item" href="#">EN</a></li>
@@ -111,12 +111,28 @@ const data = await response.json();
 </main>
 
 <style>
+  .dropdown-menu {
+    background-color: var(--background-color);
+  }
+
+  .dropdown-item {
+    color: var(--primary-color) !important;
+  }
+
+  .header {
+    background: var(--block-color);
+  }
+
   main {
     height: 700px;
     background-image: url("landing-dark.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+  }
+
+  .navbar-brand {
+    font-weight: 600;
   }
 
   .title {
@@ -153,16 +169,16 @@ const data = await response.json();
   }
 
   ul li a:hover {
-    color: var(--secondary-color);
+    color: var(--primary-color);
   }
 
   ul li a.active {
-    color: var(--secondary-color);
+    color: var(--primary-color);
   }
 
   .tel {
     font-weight: 600;
-    color: var(--secondary-color);
+    color: var(--primary-color);
   }
 
   @media only screen and (max-width: 991px) {
@@ -175,7 +191,7 @@ const data = await response.json();
     }
   }
 
-  .btn-warning {
+  .btn-primary {
     background-color: var(--secondary-color);
     border-color: var(--secondary-color);
   }
