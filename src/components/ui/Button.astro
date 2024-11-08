@@ -3,13 +3,16 @@ interface Props {
   label: string;
   type?: "submit" | "button" | "reset" | null | undefined;
   variant?: string;
+  href?: string;
 }
 
-const { label, type = "button", variant = "primary" } = Astro.props;
+const { label, type = "button", variant = "primary", href } = Astro.props;
 
 const classMap: { [key: string]: string } = {
   primary: "btn button",
   outline: "btn button-outline",
+  outlineWhite: "btn button-outline-white",
+  outlineGradient: "btn button-outline-gradient",
   filled: "btn button-filled",
 };
 
@@ -17,9 +20,9 @@ const buttonClass =
   classMap[variant as keyof typeof classMap] || classMap.primary;
 ---
 
-<button type={type} class={buttonClass}>
+<a type={type} class={buttonClass} href={href}>
   {label}
-</button>
+</a>
 
 <style>
   .button {
@@ -27,18 +30,19 @@ const buttonClass =
     font-size: 17px;
     line-height: 64px;
     font-weight: 500;
-    color: var(--text-color);
-    background-color: var(--background-color);
+    color: var(--text-dark-color);
+    background: var(--secondary-color);
     border-radius: 9999px;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    text-decoration: none;
   }
 
   .button:hover {
-    background-color: var(--primary-color);
-    color: var(--background-color);
+    background: var(--primary-color);
+    color: var(--text-light-color);
   }
 
   .button-outline {
@@ -46,8 +50,8 @@ const buttonClass =
     font-size: 17px;
     line-height: 64px;
     font-weight: 500;
-    color: var(--background-color);
-    background-color: transparent;
+    color: var(--text-dark-color);
+    background: transparent;
     border: 1px solid var(--primary-color);
     border-radius: 9999px;
     display: flex;
@@ -57,8 +61,49 @@ const buttonClass =
   }
 
   .button-outline:hover {
-    background-color: var(--primary-color);
-    color: var(--background-color);
+    background: var(--primary-color);
+    color: var(--text-light-color);
+  }
+
+  .button-outline-white {
+    padding: 0 31px;
+    font-size: 17px;
+    line-height: 64px;
+    font-weight: 500;
+    color: var(--text-light-color);
+    background: transparent;
+    border: 1px solid var(--secondary-color);
+    border-radius: 9999px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .button-outline-white:hover {
+    background: var(--secondary-color);
+    color: var(--text-dark-color);
+  }
+
+  .button-outline-gradient {
+    padding: 0 31px;
+    font-size: 17px;
+    line-height: 64px;
+    font-weight: 500;
+    color: var(--text-dark-color);
+    background: transparent;
+    border: 1px solid var(--primary-color);
+    border-radius: 9999px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .button-outline-gradient:hover {
+    /* border: 1px solid var(--gradient-color); */
+    background: var(--gradient-color);
+    color: var(--text-light-color);
   }
 
   .button-filled {
@@ -66,8 +111,9 @@ const buttonClass =
     font-size: 17px;
     line-height: 64px;
     font-weight: 500;
-    color: var(--background-color);
-    background-color: var(--primary-color);
+    color: var(--text-light-color);
+    background: var(--gradient-color);
+    border: none;
     border-radius: 9999px;
     display: flex;
     justify-content: center;

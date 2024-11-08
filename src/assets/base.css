@@ -7,11 +7,22 @@
   --button-text-color: #323555;
 } */
 
-:root {
-  --block-color: #eadabd;
-  --background-color: #fcedd3;
+/* :root {
+  --block-color: #0e8bb7;
+  --gradient-color: linear-gradient(to right, #00bcd4, #0072ff);
+  --background-color: white;
   --primary-color: navy;
   --text-color: #323555;
+} */
+
+:root {
+  /* --primary-color: #0e8bb7; */
+  --primary-color: #006fba;
+  --secondary-color: #f0faff;
+  --gradient-color: linear-gradient(to right, #00bcd4, #0072ff);
+  --text-light-color: #f0faff;
+  --text-dark-color: #002a5c;
+  /* --text-dark-color: #323555; */
 }
 
 /* :root {

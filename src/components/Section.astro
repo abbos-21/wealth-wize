@@ -48,7 +48,11 @@ const isReversed = type === "reversed";
             <div
               class={`position-absolute bottom-0 ${isReversed ? "end-0" : "start-0"}`}
             >
-              <Button label="Contact with us" variant="filled" />
+              <Button
+                label="Свяжитесь с нами"
+                variant="outlineGradient"
+                href="#contact"
+              />
             </div>
           </div>
         </div>
@@ -77,16 +81,17 @@ const isReversed = type === "reversed";
 
 <style>
   .container {
-    background-color: var(--block-color);
-    border-radius: 3rem;
+    background: var(--primary-color);
+    border-radius: 2.8rem;
     border-bottom-right-radius: 0;
     margin-top: 100px;
     padding: 100px;
     padding-bottom: 0;
+    color: var(--text-light-color);
   }
 
   .container-reversed {
-    border-bottom-right-radius: 3rem;
+    border-bottom-right-radius: 2.8rem;
     border-bottom-left-radius: 0;
     margin-top: 100px;
     padding: 100px;
@@ -110,63 +115,63 @@ const isReversed = type === "reversed";
   }
 
   .helper-1 {
-    width: calc(100% - 219.18px);
+    width: calc(100% - 250px);
     height: 85px;
     position: absolute;
     right: 0;
     bottom: -85px;
-    background-color: var(--block-color);
-    border-bottom-right-radius: 3rem;
-    border-bottom-left-radius: 3rem;
+    background: var(--primary-color);
+    border-bottom-right-radius: 2.8rem;
+    border-bottom-left-radius: 2.8rem;
   }
 
   .helper-1-reversed {
-    width: calc(100% - 219.18px);
+    width: calc(100% - 250px);
     height: 85px;
     position: absolute;
     left: 0;
     bottom: -85px;
-    background-color: var(--block-color);
-    border-bottom-right-radius: 3rem;
-    border-bottom-left-radius: 3rem;
+    background: var(--primary-color);
+    border-bottom-right-radius: 2.8rem;
+    border-bottom-left-radius: 2.8rem;
   }
 
   .helper-2 {
-    width: 219.18px;
+    width: 250px;
     height: 85px;
-    background-color: var(--block-color);
+    background: var(--primary-color);
     position: absolute;
     bottom: -85px;
     left: 0;
   }
 
   .helper-2-reversed {
-    width: 219.18px;
+    width: 250px;
     height: 85px;
-    background-color: var(--block-color);
+    background: var(--primary-color);
     position: absolute;
     bottom: -85px;
     right: 0;
   }
 
   .helper-3 {
-    width: 219.18px;
+    width: 250px;
     height: 85px;
-    background: var(--background-color);
+    background: var(--secondary-color);
     position: absolute;
     bottom: -85px;
     left: 0;
-    border-top-right-radius: 3rem;
+    border-top-right-radius: 2.8rem;
   }
 
   .helper-3-reversed {
-    width: 219.18px;
+    width: 250px;
     height: 85px;
-    background: var(--background-color);
+    background: var(--secondary-color);
     position: absolute;
     bottom: -85px;
     right: 0;
-    border-top-left-radius: 3rem;
+    border-top-left-radius: 2.8rem;
   }
 
   @media only screen and (max-width: 991px) {

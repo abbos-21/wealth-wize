@@ -1,5 +1,5 @@
 <main>
-  <button class="toggle d-none" id="direction-toggle">
+  <!-- <button class="toggle" id="direction-toggle">
     <span>Toggle scroll axis</span>
     <svg
       aria-hidden="true"
@@ -11,9 +11,9 @@
         d="M377.941 169.941V216H134.059v-46.059c0-21.382-25.851-32.09-40.971-16.971L7.029 239.029c-9.373 9.373-9.373 24.568 0 33.941l86.059 86.059c15.119 15.119 40.971 4.411 40.971-16.971V296h243.882v46.059c0 21.382 25.851 32.09 40.971 16.971l86.059-86.059c9.373-9.373 9.373-24.568 0-33.941l-86.059-86.059c-15.119-15.12-40.971-4.412-40.971 16.97z"
       ></path>
     </svg>
-  </button>
+  </button> -->
 
-  <span class="title mb-5 text-center"> Sponsors </span>
+  <div class="title mb-5 text-center">Наши партнёры</div>
 
   <article class="wrapper">
     <div class="marquee">
@@ -70,6 +70,10 @@
           <use xlink:href="#hulu"></use>
         </svg>
       </div>
+    </div>
+
+    <div class="title text-center mb-5" style="margin-top: 100px;">
+      Нам доверяют
     </div>
 
     <div class="marquee marquee--reverse">
@@ -183,46 +187,29 @@
 </main>
 
 <script>
-  /*
- JS to toggle scroll axis styles
-*/
-  const control = document.getElementById("direction-toggle");
-  const marquees = document.querySelectorAll(".marquee");
-  const wrapper = document.querySelector(".wrapper");
+  // const control = document.getElementById("direction-toggle");
+  // const marquees = document.querySelectorAll(".marquee");
+  // const wrapper = document.querySelector(".wrapper");
 
-  control.addEventListener("click", () => {
-    control.classList.toggle("toggle--vertical");
-    wrapper.classList.toggle("wrapper--vertical");
-    [...marquees].forEach((marquee) =>
-      marquee.classList.toggle("marquee--vertical"),
-    );
-  });
+  // control.addEventListener("click", () => {
+  //   control.classList.toggle("toggle--vertical");
+  //   wrapper.classList.toggle("wrapper--vertical");
+  //   [...marquees].forEach((marquee) =>
+  //     marquee.classList.toggle("marquee--vertical"),
+  //   );
+  // });
 </script>
 
 <style>
   :root {
-    /* --color-text: navy; */
-    --color-text: navy;
-    --color-bg: #fcedd3;
-    /* --color-bg-accent: #ecdcc0; */
-    --color-bg-accent: #eadabd;
+    --color-text: var(--text-dark-color);
+    --color-bg: var(--secondary-color);
+    --color-bg-accent: white;
     --size: clamp(10rem, 1rem + 40vmin, 30rem);
     --gap: calc(var(--size) / 14);
     --duration: 60s;
     --scroll-start: 0;
     --scroll-end: calc(-100% - var(--gap));
-  }
-
-  /* @media (prefers-color-scheme: dark) {
-    :root {
-      --color-text: papayawhip;
-      --color-bg: navy;
-      --color-bg-accent: #2626a0;
-    }
-  } */
-
-  * {
-    box-sizing: border-box;
   }
 
   main {
@@ -232,12 +219,12 @@
     overflow: hidden;
     gap: var(--gap);
     width: 100%;
-    /* min-height: 700px; */
     font-family: system-ui, sans-serif;
     font-size: 1rem;
     line-height: 1.5;
     color: var(--color-text);
     background-color: var(--color-bg);
+    /* there was min-height in original */
   }
 
   .marquee {
@@ -401,6 +388,5 @@
     font-size: 42px;
     line-height: 48px;
     font-weight: 600;
-    color: var(--text-color);
   }
 </style>

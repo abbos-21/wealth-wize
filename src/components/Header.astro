@@ -17,20 +17,20 @@ const data = await response.json();
 
 <main class="d-flex flex-column">
   <nav class="navbar navbar-dark navbar-expand-lg py-5 position-relative">
-    <div class="position-absolute w-100 header top-0 py-1">
+    <div class="position-absolute w-100 header top-0 py-1 default-text">
       <div class="container d-flex justify-content-between">
-        <a href="tel:+998946667410" class="text-decoration-none tel"
-          ><span class="text-dark">Tel: </span>+998 94 666 74 10</a
+        <a href="tel:+998900979007" class="text-decoration-none tel"
+          ><span class="default-text">Tel: </span>+998 90 097 90 07</a
         >
 
         <div class="d-flex align-items-center gap-2 rate">
           <div class="d-flex align-items-center gap-1">
-            <img src="https://flagcdn.com/us.svg" width="30" alt="Ukraine" />
+            <img src="us.png" width="24" alt="USD" />
             <span>1$</span>
           </div>
           <span> = </span>
           <div class="d-flex align-items-center gap-1">
-            <img src="https://flagcdn.com/uz.svg" width="30" alt="Ukraine" />
+            <img src="uz.png" width="24" alt="UZS" />
             <span>{Math.round(data.usd.uzs)} sums</span>
           </div>
         </div>
@@ -52,36 +52,33 @@ const data = await response.json();
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a class="nav-link active" aria-current="page" href="#">Главная</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#about">About Us</a>
+            <a class="nav-link" href="#about">О нас</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Services</a>
+            <a class="nav-link" href="#services">Услуги</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Pricing</a>
+            <a class="nav-link" href="/pricing">Тарифы</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">News</a>
+            <a class="nav-link" href="#">Новости</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
+            <a class="nav-link" href="#contact">Связаться с нами</a>
           </li>
         </ul>
         <div class="d-flex gap-4 text-white align-items-center flex-wrap">
-          <!-- <div>1$ = {Math.round(data.usd.uzs)} sums</div> -->
-
           <div class="dropdown">
-            <button
-              class="btn btn-primary dropdown-toggle"
-              type="button"
+            <a
+              href="#"
+              class="dropdown-toggle text-decoration-none"
               data-bs-toggle="dropdown"
-              aria-expanded="false"
+              aria-expanded="false">EN</a
             >
-              EN
-            </button>
+
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="#">UZ</a></li>
               <li><a class="dropdown-item" href="#">RU</a></li>
@@ -96,14 +93,18 @@ const data = await response.json();
   <div class="container">
     <div class="row">
       <div class="col-lg-6 col-12">
-        <p class="title">Accounting Solutions for Financial Management</p>
-        <p class="subtitle">Your finances are in good hands</p>
+        <p class="title">Бухгалтерское решение для управления финансами</p>
+        <p class="subtitle">WealthWise гарантия точности для вашего роста</p>
 
         <div
           class="d-flex flex-lg-row flex-column gap-3 align-items-lg-center align-items-start mt-4"
         >
-          <Button label="View services" />
-          <Button label="Need help?" variant="outline" />
+          <Button label="Посмотреть услуги" href="#services" />
+          <Button
+            label="Нужна помощь?"
+            variant="outlineWhite"
+            href="#contact"
+          />
         </div>
       </div>
     </div>
@@ -111,24 +112,25 @@ const data = await response.json();
 </main>
 
 <style>
-  .dropdown-menu {
-    background-color: var(--background-color);
-  }
-
-  .dropdown-item {
-    color: var(--primary-color) !important;
-  }
-
-  .header {
-    background: var(--block-color);
-  }
-
   main {
     height: 700px;
-    background-image: url("landing-dark.jpg");
+    background-image: url("/landing-dark.jpg");
+    /* background: var(--gradient-color); */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+  }
+
+  .header {
+    background: var(--secondary-color);
+  }
+
+  .default-text {
+    color: var(--text-dark-color);
+  }
+
+  .rate {
+    font-weight: 600;
   }
 
   .navbar-brand {
@@ -139,14 +141,14 @@ const data = await response.json();
     font-size: 46px;
     line-height: 52px;
     font-weight: 500;
-    color: white;
+    color: var(--text-light-color);
   }
 
   .subtitle {
     font-size: 28px;
     line-height: 32px;
     font-weight: 400;
-    color: white;
+    color: var(--text-light-color);
   }
 
   .row {
@@ -155,16 +157,16 @@ const data = await response.json();
     justify-content: center;
   }
 
-  /* ul li {
+  ul li {
     padding: 0 8px;
-  } */
+  }
 
-  /* .navbar-brand {
+  .navbar-brand {
     margin-right: 3rem;
-  } */
+  }
 
   ul li a {
-    color: white;
+    color: var(--text-light-color);
     font-weight: 500;
   }
 
@@ -181,6 +183,24 @@ const data = await response.json();
     color: var(--primary-color);
   }
 
+  .dropdown-toggle {
+    color: var(--text-light-color);
+    font-weight: 500;
+  }
+
+  .dropdown-menu {
+    background-color: var(--secondary-color);
+  }
+
+  .dropdown-item {
+    color: var(--text-dark-color) !important;
+    /* font-weight: 500 !important; */
+  }
+
+  .dropdown-item:focus {
+    background-color: var(--secondary-color);
+  }
+
   @media only screen and (max-width: 991px) {
     main {
       height: 800px;
@@ -189,11 +209,6 @@ const data = await response.json();
     .row {
       height: calc(564px - 36px);
     }
-  }
-
-  .btn-primary {
-    background-color: var(--secondary-color);
-    border-color: var(--secondary-color);
   }
 
   @media only screen and (max-width: 575px) {
