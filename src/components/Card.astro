@@ -31,29 +31,22 @@ const { title, subtitle, media, mediaType, buttonLabel, style } = Astro.props;
       <p class="card-text">
         {subtitle}
       </p>
-      <Button label={buttonLabel} variant="filled" />
+      <Button label={buttonLabel} variant="outlineWhite" />
     </div>
   </div>
 </main>
 
 <style>
   .card {
-    background: var(--block-color);
+    background: var(--gradient-color);
     border: none;
     border-radius: 20px;
     transition: all 0.3s;
-    color: var(--text-color);
+    color: var(--text-light-color);
   }
 
   .img-wrapper video {
     border-radius: 10px;
-  }
-
-  .title {
-    font-size: 42px;
-    line-height: 48px;
-    font-weight: 600;
-    color: var(--text-color);
   }
 </style>
 

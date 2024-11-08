@@ -11,14 +11,20 @@ import LogoWall from "../components/LogoWall.astro";
 
 <Layout title="WEALTHWISE">
   <main>
-    <Header />
-    <Section
-      title="About Us"
-      subtitle="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium, vero ab eum laudantium eligendi quo, libero eveniet corporis perferendis dolore quod earum ipsam ipsum asperiores?"
-      secondSubtitle="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium, vero ab eum laudantium eligendi quo, libero eveniet corporis perferendis dolore quod earum ipsam ipsum asperiores?"
-      media="video1.mp4"
-      mediaType="video"
-    />
+    <section id="home">
+      <Header />
+    </section>
+
+    <section id="about">
+      <Section
+        title="О нас"
+        subtitle="WealthWise — ведущая бухгалтерская компания, работающая на рынке более 3 лет. Мы успешно обслуживаем более 80 клиентов и имеем более 350 решенных кейсов. Наша компания стремится к максимальной эффективности и качеству предоставляемых услуг, предлагая индивидуальный подход к каждому клиенту."
+        secondSubtitle="В нашей команде 12 сотрудников — профессионалы своего дела, обладающие глубокими знаниями и значительным опытом в сфере бухгалтерского учета и финансового анализа."
+        media="video1.mp4"
+        mediaType="video"
+      />
+    </section>
+
     <Section
       style="margin-top: 200px;"
       type="reversed"
@@ -29,38 +35,42 @@ import LogoWall from "../components/LogoWall.astro";
       mediaType="video"
     />
 
-    <CardContainer
-      title="Our Services"
-      style="margin-top: 200px; margin-bottom: 100px;"
-    >
-      <Card
-        title="Card title"
-        subtitle="Some quick example text to build on the card title and make up the bulk of the card's content."
-        media="video3.mp4"
-        mediaType="video"
-        buttonLabel="Learn more"
-      />
+    <section id="services">
+      <CardContainer
+        title="Услуги"
+        style="margin-top: 200px; margin-bottom: 100px;"
+      >
+        <Card
+          title="Обработка первичной документации"
+          subtitle="Ввод данных о поступлениях, расходах и финансовых операциях."
+          media="video3.mp4"
+          mediaType="video"
+          buttonLabel="Узнать больше"
+        />
 
-      <Card
-        title="Card title"
-        subtitle="Some quick example text to build on the card title and make up the bulk of the card's content."
-        media="video4.mp4"
-        mediaType="video"
-        buttonLabel="Learn more"
-      />
+        <Card
+          title="Учет финансовых операций"
+          subtitle="Отражение всех финансовых операций в бухгалтерской системе компании, учет основных средств, амортизации и запасов."
+          media="video4.mp4"
+          mediaType="video"
+          buttonLabel="Узнать больше"
+        />
 
-      <Card
-        title="Card title"
-        subtitle="Some quick example text to build on the card title and make up the bulk of the card's content."
-        media="video5.mp4"
-        mediaType="video"
-        buttonLabel="Learn more"
-      />
-    </CardContainer>
+        <Card
+          title="Подготовка и сдача бухгалтерской отчетности"
+          subtitle="Квартальные и годовые отчеты, баланс, отчет о прибылях и убытках."
+          media="video5.mp4"
+          mediaType="video"
+          buttonLabel="Узнать больше"
+        />
+      </CardContainer>
+    </section>
 
     <LogoWall />
 
-    <Contact title="Contact Us" style="margin-top: 200px;" />
+    <section id="contact">
+      <Contact title="Contact Us" style="margin-top: 200px;" />
+    </section>
 
     <Footer style="margin-top: 100px" />
   </main>
@@ -69,6 +79,6 @@ import LogoWall from "../components/LogoWall.astro";
 <style>
   main {
     /* background: #e1e3e5; */
-    background: var(--background-color);
+    background: var(--secondary-color);
   }
 </style>

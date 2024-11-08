@@ -17,12 +17,12 @@ const { title, style } = Astro.props;
       <div class="col-lg-5 col-12">
         <div class="mb-5 gr">
           <!-- <label for="name" class="form-label">Name</label>
-          <input
-            type="text"
-            class="form-control"
-            id="name"
-            placeholder="John Doe"
-          /> -->
+            <input
+              type="text"
+              class="form-control"
+              id="name"
+              placeholder="John Doe"
+            /> -->
 
           <input type="text" required />
           <span class="highlight"></span>
@@ -31,12 +31,12 @@ const { title, style } = Astro.props;
         </div>
         <div class="mb-5 gr">
           <!-- <label for="email" class="form-label">Email address</label>
-          <input
-            type="email"
-            class="form-control"
-            id="email"
-            placeholder="johndoe@example.com"
-          /> -->
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              placeholder="johndoe@example.com"
+            /> -->
 
           <input type="text" required />
           <span class="highlight"></span>
@@ -45,18 +45,18 @@ const { title, style } = Astro.props;
         </div>
 
         <!-- <div class="mb-3">
-          <label for="select" class="form-label">How did you get us?</label>
-          <select id="select" class="form-select" aria-label="">
-            <option selected>Select</option>
-            <option value="friend">A friend of mine told me</option>
-            <option value="social-media">Social media</option>
-            <option value="google">Google</option>
-          </select>
-        </div> -->
+            <label for="select" class="form-label">How did you get us?</label>
+            <select id="select" class="form-select" aria-label="">
+              <option selected>Select</option>
+              <option value="friend">A friend of mine told me</option>
+              <option value="social-media">Social media</option>
+              <option value="google">Google</option>
+            </select>
+          </div> -->
 
         <div class="mb-5 gr">
           <!-- <label for="tel" class="form-label">Phone number</label>
-          <input type="tel" class="form-control" id="tel" value="+998" /> -->
+            <input type="tel" class="form-control" id="tel" value="+998" /> -->
 
           <input type="text" required />
           <span class="highlight"></span>
@@ -65,7 +65,7 @@ const { title, style } = Astro.props;
         </div>
         <div class="mb-5 gr">
           <!-- <label for="message" class="form-label">Message</label>
-          <textarea class="form-control" id="message" rows="5"></textarea> -->
+            <textarea class="form-control" id="message" rows="5"></textarea> -->
 
           <input type="text" required />
           <span class="highlight"></span>
@@ -90,13 +90,14 @@ const { title, style } = Astro.props;
     font-size: 42px;
     line-height: 48px;
     font-weight: 600;
-    color: var(--text-color);
+    color: var(--text-dark-color);
   }
 
   .row.mt-5 {
-    background: var(--block-color);
+    background: white;
     padding: 100px;
     border-radius: 3rem;
+    border: 1px solid var(--primary-color);
   }
 
   @media only screen and (max-width: 767px) {
@@ -122,16 +123,16 @@ const { title, style } = Astro.props;
     display: block;
     width: 100%;
     border: none;
-    border-bottom: 1px solid var(--text-color);
+    border-bottom: 1px solid var(--primary-color);
     background-color: transparent;
-    color: var(--text-color);
+    color: var(--text-dark-color);
   }
   input:focus {
     outline: none;
   }
 
   label {
-    color: var(--text-color);
+    color: var(--text-dark-color);
     font-size: 18px;
     font-weight: normal;
     position: absolute;
@@ -147,7 +148,7 @@ const { title, style } = Astro.props;
   input:valid ~ label {
     top: -20px;
     font-size: 14px;
-    color: var(--primary-color);
+    color: var(--text-dark-color);
   }
 
   .bar {

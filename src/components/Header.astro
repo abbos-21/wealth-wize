@@ -52,22 +52,22 @@ const data = await response.json();
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a class="nav-link active" aria-current="page" href="#">Главная</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#about">About Us</a>
+            <a class="nav-link" href="#about">О нас</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Services</a>
+            <a class="nav-link" href="#services">Услуги</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Pricing</a>
+            <a class="nav-link" href="/pricing">Тарифы</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">News</a>
+            <a class="nav-link" href="#">Новости</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
+            <a class="nav-link" href="#contact">Связаться с нами</a>
           </li>
         </ul>
         <div class="d-flex gap-4 text-white align-items-center flex-wrap">
@@ -93,14 +93,14 @@ const data = await response.json();
   <div class="container">
     <div class="row">
       <div class="col-lg-6 col-12">
-        <p class="title">Accounting Solutions for Financial Management</p>
-        <p class="subtitle">Your finances are in good hands</p>
+        <p class="title">Бухгалтерское решение для управления финансами</p>
+        <p class="subtitle">WealthWise гарантия точности для вашего роста</p>
 
         <div
           class="d-flex flex-lg-row flex-column gap-3 align-items-lg-center align-items-start mt-4"
         >
-          <Button label="View services" />
-          <Button label="Need help?" variant="outline" />
+          <Button label="Посмотреть услуги" />
+          <Button label="Нужна помощь?" variant="outline" />
         </div>
       </div>
     </div>
@@ -111,17 +111,18 @@ const data = await response.json();
   main {
     height: 700px;
     background-image: url("/landing-dark.jpg");
+    /* background: var(--gradient-color); */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
   }
 
   .header {
-    background: var(--background-color);
+    background: var(--secondary-color);
   }
 
   .default-text {
-    color: var(--text-color);
+    color: var(--text-dark-color);
   }
 
   .rate {
@@ -136,14 +137,14 @@ const data = await response.json();
     font-size: 46px;
     line-height: 52px;
     font-weight: 500;
-    color: var(--background-color);
+    color: var(--text-light-color);
   }
 
   .subtitle {
     font-size: 28px;
     line-height: 32px;
     font-weight: 400;
-    color: var(--background-color);
+    color: var(--text-light-color);
   }
 
   .row {
@@ -152,16 +153,16 @@ const data = await response.json();
     justify-content: center;
   }
 
-  /* ul li {
+  ul li {
     padding: 0 8px;
-  } */
+  }
 
-  /* .navbar-brand {
+  .navbar-brand {
     margin-right: 3rem;
-  } */
+  }
 
   ul li a {
-    color: var(--background-color);
+    color: var(--text-light-color);
     font-weight: 500;
   }
 
@@ -204,11 +205,6 @@ const data = await response.json();
     .row {
       height: calc(564px - 36px);
     }
-  }
-
-  .btn-primary {
-    background-color: var(--secondary-color);
-    border-color: var(--secondary-color);
   }
 
   @media only screen and (max-width: 575px) {
