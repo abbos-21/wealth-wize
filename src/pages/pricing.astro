@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Button from "../components/ui/Button.astro";
 
 interface data {
   date: string;
@@ -20,8 +21,8 @@ const data = await response.json();
     <nav class="navbar navbar-dark navbar-expand-lg py-5 position-relative">
       <div class="position-absolute w-100 header top-0 py-1 default-text">
         <div class="container d-flex justify-content-between">
-          <a href="tel:+998946667410" class="text-decoration-none tel"
-            ><span class="default-text">Tel: </span>+998 94 666 74 10</a
+          <a href="tel:+998900979007" class="text-decoration-none tel"
+            ><span class="default-text">Tel: </span>+998 90 097 90 07</a
           >
 
           <div class="d-flex align-items-center gap-2 rate">
@@ -38,7 +39,7 @@ const data = await response.json();
         </div>
       </div>
       <div class="container">
-        <a class="navbar-brand" href="#">WEALTHWISE</a>
+        <a class="navbar-brand" href="/">WEALTHWISE</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -56,10 +57,10 @@ const data = await response.json();
               <a class="nav-link" aria-current="page" href="/#home">Главная</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#about">О нас</a>
+              <a class="nav-link" href="/#about">О нас</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#services">Услуги</a>
+              <a class="nav-link" href="/#services">Услуги</a>
             </li>
             <li class="nav-item">
               <a class="nav-link active" href="/pricing">Тарифы</a>
@@ -68,7 +69,7 @@ const data = await response.json();
               <a class="nav-link" href="#">Новости</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#contact">Связаться с нами</a>
+              <a class="nav-link" href="/#contact">Связаться с нами</a>
             </li>
           </ul>
           <div class="d-flex gap-4 text-white align-items-center flex-wrap">
@@ -90,10 +91,128 @@ const data = await response.json();
         </div>
       </div>
     </nav>
+
+    <!-- <div class="container">
+      <div class="row">
+        <div class="col-4">
+          <div>
+            <div>Title</div>
+
+            <div></div>
+
+            <button type="button"> </button>
+          </div>
+
+          <div></div>
+        </div>
+
+        <div class="col-4">asdad</div>
+
+        <div class="col-4">asdad</div>
+      </div>
+    </div> -->
+
+    <div class="container">
+      <div>
+        <p class="header-title">Бухгалтерские услуги Аутсорс</p>
+        <p class="header-subtitle">Выберите подходящий для вас тариф</p>
+      </div>
+
+      <div class="row text-center mt-5 d-flex">
+        <!-- Basic Plan -->
+        <div class="col-md-4 d-flex">
+          <div class="card mb-4 flex-grow-1">
+            <div class="card-header">
+              <h3 class="my-0 fw-normal">Silver</h3>
+            </div>
+            <div class="card-body d-flex flex-column">
+              <h4 class="card-title">3 200 000 uzs / месяц</h4>
+              <ul class="list-unstyled mt-3 mb-4">
+                <li>До 4 сотрудников.</li>
+                <li>До 20 операций в месяц.</li>
+                <li>Упрощенная Система налогооблажения.</li>
+              </ul>
+              <Button
+                label="Связаться с нами"
+                variant="outline"
+                href="/#contact"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- Standard Plan -->
+        <div class="col-md-4 d-flex">
+          <div class="card mb-4 flex-grow-1">
+            <div class="card-header">
+              <h3 class="my-0 fw-normal">Gold</h3>
+            </div>
+            <div class="card-body d-flex flex-column">
+              <h4 class="card-title">5 800 000 uzs / месяц</h4>
+              <ul class="list-unstyled mt-3 mb-4">
+                <li>До 10 сотрудников.</li>
+                <li>До 40 операций в месяц.</li>
+                <li>Общеустановленная система налогооблажения.</li>
+              </ul>
+              <Button
+                label="Связаться с нами"
+                variant="filled"
+                href="/#contact"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- Premium Plan -->
+        <div class="col-md-4 d-flex">
+          <div class="card mb-4 flex-grow-1">
+            <div class="card-header">
+              <h3 class="my-0 fw-normal">Platinum</h3>
+            </div>
+            <div class="card-body d-flex flex-column">
+              <h4 class="card-title">6 800 000 uzs / месяц</h4>
+              <ul class="list-unstyled mt-3 mb-4">
+                <li>До 20 сотрудников.</li>
+                <li>До 100 операций в месяц.</li>
+                <li>Общеустановленная система налогооблажения.</li>
+              </ul>
+              <Button
+                label="Связаться с нами"
+                variant="outline"
+                href="/#contact"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </main>
 </Layout>
 
 <style>
+  .card-title {
+    font-weight: 700;
+  }
+
+  .card,
+  .card-header {
+    border-radius: 30px;
+    border-color: var(--text-dark-color);
+    background-color: var(--secondary-color);
+    color: var(--text-dark-color);
+  }
+
+  .card-header {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    padding: 16px 0;
+    font-weight: 700;
+  }
+
+  .card-body {
+    padding: 16px;
+  }
+
   main {
     min-height: 100vh;
     /* background-image: url("../landing-dark.jpg"); */
@@ -119,11 +238,9 @@ const data = await response.json();
     font-weight: 600;
   }
 
-  .row {
+  /* .row {
     height: calc(100vh - 140px);
-    flex-direction: column;
-    justify-content: center;
-  }
+  } */
 
   ul li {
     padding: 0 8px;
@@ -131,6 +248,20 @@ const data = await response.json();
 
   .navbar-brand {
     margin-right: 3rem;
+  }
+
+  .header-title {
+    font-size: 46px;
+    line-height: 52px;
+    font-weight: 500;
+    color: var(--text-light-color);
+  }
+
+  .header-subtitle {
+    font-size: 28px;
+    line-height: 32px;
+    font-weight: 400;
+    color: var(--text-light-color);
   }
 
   ul li a {
@@ -143,7 +274,7 @@ const data = await response.json();
   }
 
   ul li a.active {
-    color: var(--primary-color);
+    color: var(--text-dark-color);
   }
 
   .tel {
@@ -152,30 +283,26 @@ const data = await response.json();
   }
 
   .dropdown-toggle {
-    color: var(--background-color);
+    color: var(--text-light-color);
     font-weight: 500;
   }
 
   .dropdown-menu {
-    background-color: var(--background-color);
+    background-color: var(--secondary-color);
   }
 
   .dropdown-item {
-    color: var(--primary-color) !important;
+    color: var(--text-dark-color) !important;
     /* font-weight: 500 !important; */
   }
 
   .dropdown-item:focus {
-    background-color: var(--background-color);
+    background-color: var(--secondary-color);
   }
 
   @media only screen and (max-width: 991px) {
-    main {
-      height: 800px;
-    }
-
-    .row {
-      height: calc(564px - 36px);
+    ul li {
+      padding: 0;
     }
   }
 
@@ -194,5 +321,27 @@ const data = await response.json();
     .rate {
       font-size: 12px;
     }
+  }
+
+  .row {
+    display: flex;
+    background: var(--gradient-color);
+  }
+
+  .col-md-4 {
+    display: flex;
+  }
+
+  .card {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card-body {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 </style>

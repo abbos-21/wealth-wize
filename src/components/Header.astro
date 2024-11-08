@@ -19,8 +19,8 @@ const data = await response.json();
   <nav class="navbar navbar-dark navbar-expand-lg py-5 position-relative">
     <div class="position-absolute w-100 header top-0 py-1 default-text">
       <div class="container d-flex justify-content-between">
-        <a href="tel:+998946667410" class="text-decoration-none tel"
-          ><span class="default-text">Tel: </span>+998 94 666 74 10</a
+        <a href="tel:+998900979007" class="text-decoration-none tel"
+          ><span class="default-text">Tel: </span>+998 90 097 90 07</a
         >
 
         <div class="d-flex align-items-center gap-2 rate">
@@ -99,8 +99,12 @@ const data = await response.json();
         <div
           class="d-flex flex-lg-row flex-column gap-3 align-items-lg-center align-items-start mt-4"
         >
-          <Button label="Посмотреть услуги" />
-          <Button label="Нужна помощь?" variant="outline" />
+          <Button label="Посмотреть услуги" href="#services" />
+          <Button
+            label="Нужна помощь?"
+            variant="outlineWhite"
+            href="#contact"
+          />
         </div>
       </div>
     </div>
@@ -180,21 +184,21 @@ const data = await response.json();
   }
 
   .dropdown-toggle {
-    color: var(--background-color);
+    color: var(--text-light-color);
     font-weight: 500;
   }
 
   .dropdown-menu {
-    background-color: var(--background-color);
+    background-color: var(--secondary-color);
   }
 
   .dropdown-item {
-    color: var(--primary-color) !important;
+    color: var(--text-dark-color) !important;
     /* font-weight: 500 !important; */
   }
 
   .dropdown-item:focus {
-    background-color: var(--background-color);
+    background-color: var(--secondary-color);
   }
 
   @media only screen and (max-width: 991px) {

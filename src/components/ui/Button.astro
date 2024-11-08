@@ -3,9 +3,10 @@ interface Props {
   label: string;
   type?: "submit" | "button" | "reset" | null | undefined;
   variant?: string;
+  href?: string;
 }
 
-const { label, type = "button", variant = "primary" } = Astro.props;
+const { label, type = "button", variant = "primary", href } = Astro.props;
 
 const classMap: { [key: string]: string } = {
   primary: "btn button",
@@ -19,9 +20,9 @@ const buttonClass =
   classMap[variant as keyof typeof classMap] || classMap.primary;
 ---
 
-<button type={type} class={buttonClass}>
+<a type={type} class={buttonClass} href={href}>
   {label}
-</button>
+</a>
 
 <style>
   .button {
@@ -36,6 +37,7 @@ const buttonClass =
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    text-decoration: none;
   }
 
   .button:hover {
@@ -48,7 +50,7 @@ const buttonClass =
     font-size: 17px;
     line-height: 64px;
     font-weight: 500;
-    color: var(--text-light-color);
+    color: var(--text-dark-color);
     background: transparent;
     border: 1px solid var(--primary-color);
     border-radius: 9999px;
@@ -60,6 +62,7 @@ const buttonClass =
 
   .button-outline:hover {
     background: var(--primary-color);
+    color: var(--text-light-color);
   }
 
   .button-outline-white {
