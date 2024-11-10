@@ -7,6 +7,7 @@ const { title } = Astro.props;
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../assets/base.css";
+import "aos/dist/aos.css";
 ---
 
 <!doctype html>
@@ -34,6 +35,11 @@ import "../assets/base.css";
 
     <script>
       import "bootstrap/dist/js/bootstrap";
+    </script>
+
+    <script>
+      import AOS from "aos";
+      AOS.init({ duration: 1500 });
     </script>
   </body>
 </html>

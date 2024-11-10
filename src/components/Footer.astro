@@ -3,8 +3,6 @@ interface Props {
   style?: string;
 }
 
-import Button from "../components/ui/Button.astro";
-
 const { style } = Astro.props;
 ---
 
@@ -12,10 +10,10 @@ const { style } = Astro.props;
   <section
     class="d-flex justify-content-center justify-content-lg-between p-4 footer-top"
   >
-    <div class="me-5 d-none d-lg-block">
+    <div class="me-5 d-none d-lg-block" data-aos="fade-right">
       <span>Свяжитесь с нами в социальных сетях:</span>
     </div>
-    <div>
+    <div data-aos="zoom-in">
       <a href="" class="me-4 text-reset text-decoration-none">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -88,27 +86,18 @@ const { style } = Astro.props;
           ></path>
         </svg>
       </a>
-      <!-- <a href="" class="me-4 text-reset">
-        <i class="fab fa-instagram"></i>
-      </a>
-      <a href="" class="me-4 text-reset">
-        <i class="fab fa-linkedin"></i>
-      </a>
-      <a href="" class="me-4 text-reset">
-        <i class="fab fa-github"></i>
-      </a> -->
     </div>
   </section>
 
   <section class="">
     <div class="container text-center text-md-start mt-5">
       <div class="row mt-3">
-        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4" data-aos="zoom-in">
           <h6 class="text-uppercase fw-bold mb-4">wealthwise</h6>
           <p>Бухгалтерское решение для управления финансами</p>
         </div>
 
-        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4" data-aos="zoom-in">
           <h6 class="text-uppercase fw-bold mb-4">Услуги</h6>
           <p>
             <a href="/services/1" class="text-reset"
@@ -136,7 +125,7 @@ const { style } = Astro.props;
           </p>
         </div>
 
-        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4" data-aos="zoom-in">
           <h6 class="text-uppercase fw-bold mb-4">Полезные ссылки</h6>
           <p>
             <a href="/#home" class="text-reset">Главная</a>
@@ -155,7 +144,10 @@ const { style } = Astro.props;
           </p>
         </div>
 
-        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+        <div
+          class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4"
+          data-aos="zoom-in"
+        >
           <h6 class="text-uppercase fw-bold mb-4">Связаться с нами</h6>
           <p>
             <svg
@@ -217,7 +209,7 @@ const { style } = Astro.props;
 
   <div class="text-center p-4 footer-bottom">
     © 2024 Copyright:
-    <a class="text-reset fw-bold" href="#">WEALTHWISE.COM</a>
+    <a class="text-reset fw-bold" href="/">WEALTHWISE.COM</a>
   </div>
 </main>
 

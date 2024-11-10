@@ -1,0 +1,204 @@
+---
+interface Props {
+  active?: string;
+  className?: string;
+  style?: string;
+}
+
+const { active, className, style } = Astro.props;
+
+const API_URL =
+  "https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/usd.json";
+
+interface Data {
+  date: string;
+  usd: {
+    uzs: number;
+  };
+}
+
+let data: Data | null = null;
+
+const fetchUSDToUZSRate = async (): Promise<Data | null> => {
+  try {
+    const response = await fetch(API_URL);
+    const result = await response.json();
+
+    return result as Data;
+  } catch (error) {
+    console.error("Error fetching currency data:", error);
+    return null;
+  }
+};
+
+data = await fetchUSDToUZSRate();
+---
+
+<nav
+  class={`navbar navbar-dark navbar-expand-lg py-5 pb-3 position-relative ${className || ""}`}
+  style={style}
+  data-aos="zoom-out"
+>
+  <div class="position-absolute w-100 header top-0 py-1 default-text">
+    <div class="container d-flex justify-content-between">
+      <a href="tel:+998900979007" class="text-decoration-none tel">
+        <span class="default-text">Tel: </span>+ 998 (90) 097-90-07
+      </a>
+
+      <div class="d-flex align-items-center gap-2 rate">
+        <div class="d-flex align-items-center gap-1">
+          <img src="/us.png" width="24" alt="USD" />
+          <span>1$</span>
+        </div>
+        <span>=</span>
+        <div class="d-flex align-items-center gap-1">
+          <img src="/uz.png" width="24" alt="UZS" />
+          <span>{data ? Math.round(data.usd.uzs) : "Loading..."} сум</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <a class="navbar-brand" href="/">WEALTHWISE</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-3 mb-lg-0">
+        <li class="nav-item">
+          <a
+            class={`nav-link ${active === "home" ? "active" : ""}`}
+            href="/#home">Главная</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class={`nav-link ${active === "about" ? "active" : ""}`}
+            href="/#about">О нас</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class={`nav-link ${active === "services" ? "active" : ""}`}
+            href="/#services">Услуги</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class={`nav-link ${active === "pricing" ? "active" : ""}`}
+            href="/pricing">Тарифы</a
+          >
+        </li>
+        <!-- <li class="nav-item">
+          <a class={`nav-link ${active === "news" ? "active" : ""}`} href="#"
+            >Новости</a
+          >
+        </li> -->
+        <li class="nav-item">
+          <a
+            class={`nav-link ${active === "contact" ? "active" : ""}`}
+            href="/#contact">Связаться с нами</a
+          >
+        </li>
+      </ul>
+      <div class="d-flex gap-4 text-white align-items-center flex-wrap">
+        <div class="dropdown">
+          <a
+            href="#"
+            class="dropdown-toggle text-decoration-none"
+            data-bs-toggle="dropdown"
+            aria-expanded="false">РУ</a
+          >
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">UZ</a></li>
+            <li><a class="dropdown-item" href="#">EN</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<style>
+  .header {
+    background: var(--secondary-color);
+  }
+
+  .default-text {
+    color: var(--text-dark-color);
+  }
+
+  .tel {
+    font-weight: 600;
+    color: var(--primary-color);
+  }
+
+  .rate {
+    font-weight: 600;
+  }
+
+  .navbar-brand {
+    font-weight: 600;
+    margin-right: 3rem;
+  }
+
+  ul li {
+    margin: 0 8px;
+  }
+
+  ul li a {
+    color: var(--text-light-color);
+    font-weight: 500;
+  }
+
+  ul li a:hover {
+    color: var(--primary-color);
+  }
+
+  ul li a.active {
+    color: var(--text-dark-color);
+  }
+
+  .dropdown-toggle {
+    color: var(--text-light-color);
+    font-weight: 500;
+  }
+
+  .dropdown-menu {
+    background-color: var(--secondary-color);
+  }
+
+  .dropdown-item {
+    color: var(--text-dark-color) !important;
+  }
+
+  .dropdown-item:focus {
+    background-color: var(--secondary-color);
+  }
+
+  @media only screen and (max-width: 991px) {
+    ul li {
+      margin: 4px 0;
+    }
+  }
+
+  @media only screen and (max-width: 575px) {
+    .tel {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--secondary-color);
+    }
+
+    .rate {
+      font-size: 12px;
+    }
+  }
+</style>

@@ -1,6 +1,4 @@
 ---
-import Button from "./ui/Button.astro";
-
 interface Props {
   title: string;
   style?: string;
@@ -11,65 +9,50 @@ const { title, style } = Astro.props;
 
 <main style={style}>
   <div class="container">
-    <div class="row title justify-content-center">{title}</div>
+    <div class="row title justify-content-center" data-aos="zoom-in">
+      {title}
+    </div>
 
-    <div class="row mt-5 justify-content-between">
+    <div class="row mt-5 justify-content-between" data-aos="fade-left">
       <form class="col-lg-5 col-12" id="myForm">
-        <div class="mb-5 gr">
-          <!-- <label for="name" class="form-label">Name</label>
-            <input
-              type="text"
-              class="form-control"
-              id="name"
-              placeholder="John Doe"
-            /> -->
-
+        <div class="mb-5 position-relative">
           <input type="text" required id="name" />
           <span class="highlight"></span>
           <span class="bar"></span>
           <label>Имя</label>
         </div>
-        <div class="mb-5 gr">
-          <!-- <label for="email" class="form-label">Email address</label>
-            <input
-              type="email"
-              class="form-control"
-              id="email"
-              placeholder="johndoe@example.com"
-            /> -->
-
+        <div class="mb-5 position-relative">
           <input type="text" required id="email" />
           <span class="highlight"></span>
           <span class="bar"></span>
           <label>Электронная почта</label>
         </div>
 
-        <div class="mb-5 gr">
-          <!-- <label for="tel" class="form-label">Phone number</label>
-            <input type="tel" class="form-control" id="tel" value="+998" /> -->
-
+        <div class="mb-5 position-relative">
           <input type="text" required id="tel" />
           <span class="highlight"></span>
           <span class="bar"></span>
           <label>Номер телефона</label>
         </div>
-        <div class="mb-5 gr">
-          <!-- <label for="message" class="form-label">Message</label>
-            <textarea class="form-control" id="message" rows="5"></textarea> -->
-
+        <div class="mb-5 position-relative">
           <input type="text" required id="message" />
           <span class="highlight"></span>
           <span class="bar"></span>
           <label>Сообщение</label>
         </div>
 
-        <button type="submit" class="btn button-filled">Отправить</button>
+        <button type="submit" class="btn button-filled" data-aos="fade-right"
+          >Отправить</button
+        >
       </form>
 
-      <div
-        class="col-6 d-lg-flex d-none border justify-content-center align-items-center"
-      >
-        <span>Rasm</span>
+      <div class="col-6 d-lg-block d-none" data-aos="flip-left">
+        <img
+          src="/landing-dark.jpg"
+          alt="Contact"
+          class="w-100"
+          style="border-radius: 20px;"
+        />
       </div>
     </div>
   </div>
@@ -84,7 +67,6 @@ const { title, style } = Astro.props;
     const tel = document.getElementById("tel").value;
     const message = document.getElementById("message").value;
 
-    // Send form data to the Node.js backend
     fetch("https://13.232.66.126/submit-form", {
       method: "POST",
       headers: {
@@ -104,6 +86,20 @@ const { title, style } = Astro.props;
 </script>
 
 <style>
+  .title {
+    font-size: 42px;
+    line-height: 48px;
+    font-weight: 600;
+    color: var(--text-dark-color);
+  }
+
+  .row.mt-5 {
+    background: white;
+    padding: 100px;
+    border-radius: 3rem;
+    border: 1px solid var(--primary-color);
+  }
+
   .button-filled {
     padding: 0 31px;
     font-size: 17px;
@@ -119,20 +115,6 @@ const { title, style } = Astro.props;
     cursor: pointer;
   }
 
-  .title {
-    font-size: 42px;
-    line-height: 48px;
-    font-weight: 600;
-    color: var(--text-dark-color);
-  }
-
-  .row.mt-5 {
-    background: white;
-    padding: 100px;
-    border-radius: 3rem;
-    border: 1px solid var(--primary-color);
-  }
-
   @media only screen and (max-width: 767px) {
     .row.mt-5 {
       padding: 50px;
@@ -146,10 +128,6 @@ const { title, style } = Astro.props;
     }
   }
 
-  .gr {
-    position: relative;
-  }
-
   input {
     font-size: 18px;
     padding: 10px 10px 10px 5px;
@@ -160,6 +138,7 @@ const { title, style } = Astro.props;
     background-color: transparent;
     color: var(--text-dark-color);
   }
+
   input:focus {
     outline: none;
   }
