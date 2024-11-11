@@ -19,26 +19,26 @@ const { title, style } = Astro.props;
           <input type="text" required id="name" />
           <span class="highlight"></span>
           <span class="bar"></span>
-          <label>Имя</label>
+          <label>Имя <span class="req-red">*</span></label>
         </div>
         <div class="mb-5 position-relative">
           <input type="email" required id="email" />
           <span class="highlight"></span>
           <span class="bar"></span>
-          <label>Электронная почта</label>
+          <label>Электронная почта <span class="req-red">*</span></label>
         </div>
 
         <div class="mb-5 position-relative">
           <input type="tel" required id="tel" />
           <span class="highlight"></span>
           <span class="bar"></span>
-          <label>Номер телефона</label>
+          <label>Номер телефона <span class="req-red">*</span></label>
         </div>
         <div class="mb-5 position-relative">
           <input type="text" required id="message" />
           <span class="highlight"></span>
           <span class="bar"></span>
-          <label>Сообщение</label>
+          <label>Сообщение <span class="req-red">*</span></label>
         </div>
 
         <button type="submit" class="btn button-filled" data-aos="fade-right"
@@ -46,13 +46,22 @@ const { title, style } = Astro.props;
         >
       </form>
 
-      <div class="col-6 d-lg-block d-none" data-aos="flip-left">
-        <img
+      <div class="col-lg-6 col-12 mt-lg-0 mt-5">
+        <!-- <img
           src="/landing-dark.jpg"
           alt="Contact"
           class="w-100"
           style="border-radius: 20px;"
-        />
+        /> -->
+
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d726.8869798325231!2d69.26941239974929!3d41.30400844714736!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38ae8b4f696718a3%3A0x8e06b08e61fa3def!2sWealthwise!5e0!3m2!1sru!2s!4v1731322641709!5m2!1sru!2s"
+          width="100%"
+          height="450"
+          style="border:0; border-radius: 20px;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </div>
   </div>
@@ -86,6 +95,10 @@ const { title, style } = Astro.props;
 </script>
 
 <style>
+  .req-red {
+    color: red;
+  }
+
   .title {
     font-size: 42px;
     line-height: 48px;

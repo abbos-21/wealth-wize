@@ -60,7 +60,12 @@ const { title, subtitle, media, mediaType, buttonLabel, style, buttonHref } =
             <source src={media} type="video/mp4" />
           </video>
         ) : (
-          <img src={media} alt={title} class="img-fluid" />
+          <img
+            src={media}
+            alt={title}
+            class="img-fluid"
+            style="object-fit: cover; height: 200px;"
+          />
         )
       }
     </div>
