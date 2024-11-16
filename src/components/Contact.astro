@@ -68,30 +68,47 @@ const { title, style } = Astro.props;
 </main>
 
 <script lang="js">
-  document.getElementById("myForm").addEventListener("submit", function (e) {
-    e.preventDefault();
+  document
+    .getElementById("myForm")
+    .addEventListener("submit", async function (e) {
+      e.preventDefault();
 
-    const name = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
-    const tel = document.getElementById("tel").value;
-    const message = document.getElementById("message").value;
-    // https://wealthwise-tg-bot.onrender.com/submit-form
-    fetch("https://e5f5-13-60-45-252.ngrok-free.app/submit-form", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ name, email, tel, message }),
-    })
-      .then((response) => response.text())
-      .then((data) => {
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const tel = document.getElementById("tel").value;
+      const message = document.getElementById("message").value;
+      const chatIds = ["1031081189", "6126626263", "5751827734", "1372474769"];
+
+      const htmlFormatMessage = `Новое сообщение от клиента 🔔 \n\n<b>Имя: </b>${name}\n<b>Почта: </b>${email}\n<b>Номер телефона: </b>${tel}\n<b>Сообщение: </b>\n\n<i>${message}</i>`;
+
+      console.log(htmlFormatMessage);
+
+      try {
+        const requests = chatIds.map((chatId) =>
+          fetch(
+            "https://api.telegram.org/bot7820076195:AAE7TTsq15V6Olcobhrrourpmu9zreetjb0/sendMessage",
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                chat_id: chatId,
+                text: htmlFormatMessage,
+                parse_mode: "HTML",
+              }),
+            },
+          ),
+        );
+
+        await Promise.all(requests);
+
         alert("Сообщение успешно отправлено");
-      })
-      .catch((error) => {
+      } catch (error) {
         console.error("Error:", error);
-        alert("Что-то пошло не так");
-      });
-  });
+        alert("Что-то пошло не так при отправке сообщений");
+      }
+    });
 </script>
 
 <style>
