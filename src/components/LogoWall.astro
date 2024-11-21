@@ -4,10 +4,13 @@
 
     <div class="marquee">
       <div class="marquee__group">
-        <svg>
+        <!-- <svg>
           <use xlink:href="#mcdonalds"></use>
-        </svg>
-        <svg>
+        </svg> -->
+        <img src="/aledo.png" alt="" />
+        <img src="/umag.png" alt="" />
+        <img src="/sculptor.png" alt="" />
+        <!-- <svg>
           <use xlink:href="#jordan"></use>
         </svg>
         <svg>
@@ -27,11 +30,14 @@
         </svg>
         <svg>
           <use xlink:href="#hulu"></use>
-        </svg>
+        </svg> -->
       </div>
 
       <div aria-hidden="true" class="marquee__group">
-        <svg>
+        <img src="/aledo.png" alt="" />
+        <img src="/umag.png" alt="" />
+        <img src="/sculptor.png" alt="" />
+        <!-- <svg>
           <use xlink:href="#mcdonalds"></use>
         </svg>
         <svg>
@@ -54,11 +60,11 @@
         </svg>
         <svg>
           <use xlink:href="#hulu"></use>
-        </svg>
+        </svg> -->
       </div>
     </div>
 
-    <div
+    <!-- <div
       class="title text-center mb-5"
       style="margin-top: 100px;"
       data-aos="zoom-in"
@@ -120,7 +126,7 @@
           <use xlink:href="#mcdonalds"></use>
         </svg>
       </div>
-    </div>
+    </div> -->
   </article>
 
   <svg style="display: none" xmlns="http://www.w3.org/2000/svg">
@@ -183,7 +189,7 @@
     --color-bg-accent: white;
     --size: clamp(10rem, 1rem + 40vmin, 30rem);
     --gap: calc(var(--size) / 14);
-    --duration: 60s;
+    --duration: 15s;
     --scroll-start: 0;
     --scroll-end: calc(-100% - var(--gap));
   }
@@ -203,6 +209,7 @@
   }
 
   .marquee {
+    margin-top: 75px;
     display: flex;
     overflow: hidden;
     user-select: none;
@@ -277,6 +284,10 @@
     aspect-ratio: 16/9;
     padding: calc(var(--size) / 10);
     border-radius: 0.5rem;
+  }
+
+  .marquee img {
+    width: var(--size);
   }
 
   .marquee--vertical svg {
