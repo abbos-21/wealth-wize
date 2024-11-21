@@ -7,6 +7,7 @@ const { title } = Astro.props;
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../assets/base.css";
+import "aos/dist/aos.css";
 ---
 
 <!doctype html>
@@ -15,13 +16,13 @@ import "../assets/base.css";
     <meta charset="UTF-8" />
     <meta name="description" content="Astro description" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg" /> -->
     <meta name="generator" content={Astro.generator} />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
 
@@ -35,6 +36,11 @@ import "../assets/base.css";
     <script>
       import "bootstrap/dist/js/bootstrap";
     </script>
+
+    <script>
+      import AOS from "aos";
+      AOS.init({ duration: 1500 });
+    </script>
   </body>
 </html>
 <style is:global>
@@ -43,5 +49,10 @@ import "../assets/base.css";
     padding: 0;
     box-sizing: border-box;
     font-family: "Montserrat", sans-serif;
+  }
+
+  html,
+  body {
+    overflow-x: hidden;
   }
 </style>

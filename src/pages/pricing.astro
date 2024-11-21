@@ -1,192 +1,106 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/ui/Navbar.astro";
 import Button from "../components/ui/Button.astro";
-
-interface data {
-  date: string;
-  usd: {
-    uzs: string;
-  };
-}
-
-const API_URL =
-  "https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/usd.json";
-
-const response = await fetch(API_URL);
-const data = await response.json();
+import Footer from "../components/Footer.astro";
 ---
 
 <Layout title="WealthWise - Pricing">
   <main>
-    <nav class="navbar navbar-dark navbar-expand-lg py-5 position-relative">
-      <div class="position-absolute w-100 header top-0 py-1 default-text">
-        <div class="container d-flex justify-content-between">
-          <a href="tel:+998900979007" class="text-decoration-none tel"
-            ><span class="default-text">Tel: </span>+998 90 097 90 07</a
-          >
+    <Navbar active="pricing" />
 
-          <div class="d-flex align-items-center gap-2 rate">
-            <div class="d-flex align-items-center gap-1">
-              <img src="us.png" width="24" alt="USD" />
-              <span>1$</span>
-            </div>
-            <span> = </span>
-            <div class="d-flex align-items-center gap-1">
-              <img src="uz.png" width="24" alt="UZS" />
-              <span>{Math.round(data.usd.uzs)} sums</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="container">
-        <a class="navbar-brand" href="/">WEALTHWISE</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="/#home">Главная</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/#about">О нас</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/#services">Услуги</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="/pricing">Тарифы</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Новости</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/#contact">Связаться с нами</a>
-            </li>
-          </ul>
-          <div class="d-flex gap-4 text-white align-items-center flex-wrap">
-            <div class="dropdown">
-              <a
-                href="#"
-                class="dropdown-toggle text-decoration-none"
-                data-bs-toggle="dropdown"
-                aria-expanded="false">EN</a
-              >
-
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">UZ</a></li>
-                <li><a class="dropdown-item" href="#">RU</a></li>
-                <li><a class="dropdown-item" href="#">EN</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </nav>
-
-    <!-- <div class="container">
-      <div class="row">
-        <div class="col-4">
-          <div>
-            <div>Title</div>
-
-            <div></div>
-
-            <button type="button"> </button>
-          </div>
-
-          <div></div>
-        </div>
-
-        <div class="col-4">asdad</div>
-
-        <div class="col-4">asdad</div>
-      </div>
-    </div> -->
-
-    <div class="container">
-      <div>
-        <p class="header-title">Бухгалтерские услуги Аутсорс</p>
-        <p class="header-subtitle">Выберите подходящий для вас тариф</p>
+    <div class="container py-5">
+      <div class="mb-4" data-aos="fade-down">
+        <p class="title">Бухгалтерские услуги Аутсорс</p>
+        <p class="subtitle">Выберите подходящий для вас тариф</p>
       </div>
 
-      <div class="row text-center mt-5 d-flex">
-        <!-- Basic Plan -->
-        <div class="col-md-4 d-flex">
+      <div class="row text-center">
+        <div class="col-lg-4 d-flex" data-aos="fade-right">
           <div class="card mb-4 flex-grow-1">
             <div class="card-header">
               <h3 class="my-0 fw-normal">Silver</h3>
             </div>
             <div class="card-body d-flex flex-column">
-              <h4 class="card-title">3 200 000 uzs / месяц</h4>
+              <h4 class="card-title">3 200 000 сум / месяц</h4>
               <ul class="list-unstyled mt-3 mb-4">
                 <li>До 4 сотрудников.</li>
                 <li>До 20 операций в месяц.</li>
                 <li>Упрощенная Система налогооблажения.</li>
               </ul>
-              <Button
-                label="Связаться с нами"
-                variant="outline"
-                href="/#contact"
-              />
+              <div
+                class="w-100 d-flex justify-content-center align-items-center"
+              >
+                <div style="max-width: 250px;">
+                  <Button
+                    label="Связаться с нами"
+                    variant="outline"
+                    href="/#contact"
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
-        <!-- Standard Plan -->
-        <div class="col-md-4 d-flex">
+        <div class="col-lg-4 d-flex" data-aos="fade-up">
           <div class="card mb-4 flex-grow-1">
             <div class="card-header">
               <h3 class="my-0 fw-normal">Gold</h3>
             </div>
             <div class="card-body d-flex flex-column">
-              <h4 class="card-title">5 800 000 uzs / месяц</h4>
+              <h4 class="card-title">5 800 000 сум / месяц</h4>
               <ul class="list-unstyled mt-3 mb-4">
                 <li>До 10 сотрудников.</li>
                 <li>До 40 операций в месяц.</li>
                 <li>Общеустановленная система налогооблажения.</li>
               </ul>
-              <Button
-                label="Связаться с нами"
-                variant="filled"
-                href="/#contact"
-              />
+              <div
+                class="w-100 d-flex justify-content-center align-items-center"
+              >
+                <div style="max-width: 250px;">
+                  <Button
+                    label="Связаться с нами"
+                    variant="filled"
+                    href="/#contact"
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
-        <!-- Premium Plan -->
-        <div class="col-md-4 d-flex">
-          <div class="card mb-4 flex-grow-1">
+        <div class="col-lg-4 d-flex">
+          <div class="card mb-4 flex-grow-1" data-aos="fade-left">
             <div class="card-header">
               <h3 class="my-0 fw-normal">Platinum</h3>
             </div>
             <div class="card-body d-flex flex-column">
-              <h4 class="card-title">6 800 000 uzs / месяц</h4>
+              <h4 class="card-title">6 800 000 сум / месяц</h4>
               <ul class="list-unstyled mt-3 mb-4">
                 <li>До 20 сотрудников.</li>
                 <li>До 100 операций в месяц.</li>
                 <li>Общеустановленная система налогооблажения.</li>
               </ul>
-              <Button
-                label="Связаться с нами"
-                variant="outline"
-                href="/#contact"
-              />
+              <div
+                class="w-100 d-flex justify-content-center align-items-center"
+              >
+                <div style="max-width: 250px;">
+                  <Button
+                    label="Связаться с нами"
+                    variant="outline"
+                    href="/#contact"
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
   </main>
+
+  <Footer />
 </Layout>
 
 <style>
@@ -215,120 +129,24 @@ const data = await response.json();
 
   main {
     min-height: 100vh;
-    /* background-image: url("../landing-dark.jpg"); */
     background: var(--gradient-color);
-    /* background-size: cover; */
-    /* background-position: center; */
-    /* background-repeat: no-repeat; */
   }
 
-  .header {
-    background: var(--secondary-color);
-  }
-
-  .default-text {
-    color: var(--text-dark-color);
-  }
-
-  .rate {
-    font-weight: 600;
-  }
-
-  .navbar-brand {
-    font-weight: 600;
-  }
-
-  /* .row {
-    height: calc(100vh - 140px);
-  } */
-
-  ul li {
-    padding: 0 8px;
-  }
-
-  .navbar-brand {
-    margin-right: 3rem;
-  }
-
-  .header-title {
+  .title {
     font-size: 46px;
     line-height: 52px;
     font-weight: 500;
     color: var(--text-light-color);
   }
 
-  .header-subtitle {
+  .subtitle {
     font-size: 28px;
     line-height: 32px;
     font-weight: 400;
     color: var(--text-light-color);
   }
 
-  ul li a {
-    color: var(--text-light-color);
-    font-weight: 500;
-  }
-
-  ul li a:hover {
-    color: var(--primary-color);
-  }
-
-  ul li a.active {
-    color: var(--text-dark-color);
-  }
-
-  .tel {
-    font-weight: 600;
-    color: var(--primary-color);
-  }
-
-  .dropdown-toggle {
-    color: var(--text-light-color);
-    font-weight: 500;
-  }
-
-  .dropdown-menu {
-    background-color: var(--secondary-color);
-  }
-
-  .dropdown-item {
-    color: var(--text-dark-color) !important;
-    /* font-weight: 500 !important; */
-  }
-
-  .dropdown-item:focus {
-    background-color: var(--secondary-color);
-  }
-
-  @media only screen and (max-width: 991px) {
-    ul li {
-      padding: 0;
-    }
-  }
-
-  .btn-primary {
-    background-color: var(--secondary-color);
-    border-color: var(--secondary-color);
-  }
-
-  @media only screen and (max-width: 575px) {
-    .tel {
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--secondary-color);
-    }
-
-    .rate {
-      font-size: 12px;
-    }
-  }
-
-  .row {
-    display: flex;
-    background: var(--gradient-color);
-  }
-
-  .col-md-4 {
+  .col-lg-4 {
     display: flex;
   }
 
@@ -343,5 +161,13 @@ const data = await response.json();
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+  }
+
+  ul li {
+    margin-bottom: 12px;
+  }
+
+  ul li:last-child {
+    margin-bottom: 0;
   }
 </style>

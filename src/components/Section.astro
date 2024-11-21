@@ -33,11 +33,11 @@ const isReversed = type === "reversed";
       class={`row justify-content-between flex-lg-row ${isReversed ? "flex-lg-row-reverse" : "flex-column"}`}
     >
       <div class="col-lg-5 col-12">
-        <p class="title">{title}</p>
-        <p class="subtitle">
+        <p class="title" data-aos="fade-down">{title}</p>
+        <p class="subtitle" data-aos="fade-right">
           {subtitle}
         </p>
-        <p class="subtitle subtitle-2">
+        <p class="subtitle subtitle-2" data-aos="fade-left">
           {secondSubtitle}
         </p>
 
@@ -47,6 +47,7 @@ const isReversed = type === "reversed";
           <div class="w-100 h-100 position-relative">
             <div
               class={`position-absolute bottom-0 ${isReversed ? "end-0" : "start-0"}`}
+              data-aos="fade-right"
             >
               <Button
                 label="Свяжитесь с нами"
@@ -60,6 +61,7 @@ const isReversed = type === "reversed";
 
       <div
         class="col-lg-6 col-12 d-flex justify-content-center align-items-center mt-lg-0 mt-3"
+        data-aos="flip-right"
       >
         <!-- <video width="100%" autoplay muted loop>
           <source src={media} type="video/mp4" />
@@ -71,7 +73,11 @@ const isReversed = type === "reversed";
               <source src={media} type="video/mp4" />
             </video>
           ) : (
-            <img src={media} alt={title} class="img-fluid" />
+            <img
+              src={media}
+              alt={title}
+              style="border-radius: 20px; width: 100%; height: 400px; object-fit: cover;"
+            />
           )
         }
       </div>

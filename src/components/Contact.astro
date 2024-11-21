@@ -1,6 +1,4 @@
 ---
-import Button from "./ui/Button.astro";
-
 interface Props {
   title: string;
   style?: string;
@@ -11,81 +9,113 @@ const { title, style } = Astro.props;
 
 <main style={style}>
   <div class="container">
-    <div class="row title justify-content-center">{title}</div>
+    <div class="row title justify-content-center" data-aos="zoom-in">
+      {title}
+    </div>
 
-    <div class="row mt-5 justify-content-between">
-      <div class="col-lg-5 col-12">
-        <div class="mb-5 gr">
-          <!-- <label for="name" class="form-label">Name</label>
-            <input
-              type="text"
-              class="form-control"
-              id="name"
-              placeholder="John Doe"
-            /> -->
-
-          <input type="text" required />
+    <div class="row mt-5 justify-content-between" data-aos="fade-left">
+      <form class="col-lg-5 col-12" id="myForm">
+        <div class="mb-5 position-relative">
+          <input type="text" required id="name" />
           <span class="highlight"></span>
           <span class="bar"></span>
-          <label>Имя</label>
+          <label>Имя <span class="req-red">*</span></label>
         </div>
-        <div class="mb-5 gr">
-          <!-- <label for="email" class="form-label">Email address</label>
-            <input
-              type="email"
-              class="form-control"
-              id="email"
-              placeholder="johndoe@example.com"
-            /> -->
-
-          <input type="text" required />
+        <div class="mb-5 position-relative">
+          <input type="email" required id="email" />
           <span class="highlight"></span>
           <span class="bar"></span>
-          <label>Электронная почта</label>
+          <label>Электронная почта <span class="req-red">*</span></label>
         </div>
 
-        <!-- <div class="mb-3">
-            <label for="select" class="form-label">How did you get us?</label>
-            <select id="select" class="form-select" aria-label="">
-              <option selected>Select</option>
-              <option value="friend">A friend of mine told me</option>
-              <option value="social-media">Social media</option>
-              <option value="google">Google</option>
-            </select>
-          </div> -->
-
-        <div class="mb-5 gr">
-          <!-- <label for="tel" class="form-label">Phone number</label>
-            <input type="tel" class="form-control" id="tel" value="+998" /> -->
-
-          <input type="text" required />
+        <div class="mb-5 position-relative">
+          <input type="tel" required id="tel" />
           <span class="highlight"></span>
           <span class="bar"></span>
-          <label>Номер телефона</label>
+          <label>Номер телефона <span class="req-red">*</span></label>
         </div>
-        <div class="mb-5 gr">
-          <!-- <label for="message" class="form-label">Message</label>
-            <textarea class="form-control" id="message" rows="5"></textarea> -->
-
-          <input type="text" required />
+        <div class="mb-5 position-relative">
+          <input type="text" required id="message" />
           <span class="highlight"></span>
           <span class="bar"></span>
-          <label>Сообщение</label>
+          <label>Сообщение <span class="req-red">*</span></label>
         </div>
 
-        <Button label="Отправить" variant="filled" />
-      </div>
+        <button type="submit" class="btn button-filled" data-aos="fade-right"
+          >Отправить</button
+        >
+      </form>
 
-      <div
-        class="col-6 d-lg-flex d-none border justify-content-center align-items-center"
-      >
-        <span>Rasm</span>
+      <div class="col-lg-6 col-12 mt-lg-0 mt-5">
+        <!-- <img
+          src="/landing-dark.jpg"
+          alt="Contact"
+          class="w-100"
+          style="border-radius: 20px;"
+        /> -->
+
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d726.8869798325231!2d69.26941239974929!3d41.30400844714736!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38ae8b4f696718a3%3A0x8e06b08e61fa3def!2sWealthwise!5e0!3m2!1sru!2s!4v1731322641709!5m2!1sru!2s"
+          width="100%"
+          height="450"
+          style="border:0; border-radius: 20px;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </div>
   </div>
 </main>
 
+<script lang="js">
+  document
+    .getElementById("myForm")
+    .addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const tel = document.getElementById("tel").value;
+      const message = document.getElementById("message").value;
+      const chatIds = ["1031081189", "6126626263", "5751827734", "1372474769"];
+
+      const htmlFormatMessage = `Новое сообщение от клиента 🔔 \n\n<b>Имя: </b>${name}\n<b>Почта: </b>${email}\n<b>Номер телефона: </b>${tel}\n<b>Сообщение: </b>\n\n<i>${message}</i>`;
+
+      console.log(htmlFormatMessage);
+
+      try {
+        const requests = chatIds.map((chatId) =>
+          fetch(
+            "https://api.telegram.org/bot7820076195:AAE7TTsq15V6Olcobhrrourpmu9zreetjb0/sendMessage",
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                chat_id: chatId,
+                text: htmlFormatMessage,
+                parse_mode: "HTML",
+              }),
+            },
+          ),
+        );
+
+        await Promise.all(requests);
+
+        alert("Сообщение успешно отправлено");
+      } catch (error) {
+        console.error("Error:", error);
+        alert("Что-то пошло не так при отправке сообщений");
+      }
+    });
+</script>
+
 <style>
+  .req-red {
+    color: red;
+  }
+
   .title {
     font-size: 42px;
     line-height: 48px;
@@ -98,6 +128,21 @@ const { title, style } = Astro.props;
     padding: 100px;
     border-radius: 3rem;
     border: 1px solid var(--primary-color);
+  }
+
+  .button-filled {
+    padding: 0 31px;
+    font-size: 17px;
+    line-height: 64px;
+    font-weight: 500;
+    color: var(--text-light-color);
+    background: var(--gradient-color);
+    border: none;
+    border-radius: 9999px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
   }
 
   @media only screen and (max-width: 767px) {
@@ -113,10 +158,6 @@ const { title, style } = Astro.props;
     }
   }
 
-  .gr {
-    position: relative;
-  }
-
   input {
     font-size: 18px;
     padding: 10px 10px 10px 5px;
@@ -127,6 +168,7 @@ const { title, style } = Astro.props;
     background-color: transparent;
     color: var(--text-dark-color);
   }
+
   input:focus {
     outline: none;
   }
