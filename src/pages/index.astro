@@ -7,9 +7,27 @@ import Card from "../components/Card.astro";
 import Contact from "../components/Contact.astro";
 import Footer from "../components/Footer.astro";
 import LogoWall from "../components/LogoWall.astro";
+
+const responseBlock1 = await fetch("http://3.76.100.163:8080/block?id=1");
+const dataBlock1 = await responseBlock1.json();
+
+const responseBlock2 = await fetch("http://3.76.100.163:8080/block?id=2");
+const dataBlock2 = await responseBlock2.json();
+
+// const response = await fetch(`http://3.76.100.163:8080/card?id=1`);
+// const data = await response.json();
+
+const cardData = [];
+
+for (let i = 1; i <= 6; i++) {
+  const response = await fetch(`http://3.76.100.163:8080/card?id=${i}`);
+  const data = await response.json();
+  cardData.push(data);
+  console.log(cardData);
+}
 ---
 
-<Layout title="WEALTHWISE">
+<Layout title="WEALTHWISE - Бухгалтерское решение для управления финансами">
   <main>
     <section id="home">
       <Header />
@@ -17,9 +35,10 @@ import LogoWall from "../components/LogoWall.astro";
 
     <section id="about">
       <Section
-        title="О нас"
-        subtitle="WealthWise — ведущая бухгалтерская компания, работающая на рынке более 3 лет. Мы успешно обслуживаем более 80 клиентов и имеем более 350 решенных кейсов. Наша компания стремится к максимальной эффективности и качеству предоставляемых услуг, предлагая индивидуальный подход к каждому клиенту."
-        secondSubtitle="В нашей команде 12 сотрудников — профессионалы своего дела, обладающие глубокими знаниями и значительным опытом в сфере бухгалтерского учета и финансового анализа."
+        title={dataBlock1.title}
+        subtitle={dataBlock1.content1}
+        secondSubtitle={dataBlock1.content2}
+        buttonLabel={dataBlock1.button_content}
         media="/3.jpg"
       />
     </section>
@@ -82,9 +101,10 @@ import LogoWall from "../components/LogoWall.astro";
     <Section
       style="margin-top: 100px;"
       type="reversed"
-      title="Наши преимущества"
-      subtitle="Наша команда состоит из сертифицированных бухгалтеров и аудиторов с многолетним опытом в различных отраслях. Мы предлагаем персонализированные решения, учитывающие потребности каждого клиента, гарантируя безопасность данных и конфиденциальность."
-      secondSubtitle="Используя передовые программные решения, мы обеспечиваем высокий уровень точности и эффективности, помогая вам сэкономить время и ресурсы для концентрации на основном бизнесе."
+      title={dataBlock2.title}
+      subtitle={dataBlock2.content1}
+      secondSubtitle={dataBlock2.content2}
+      buttonLabel={dataBlock2.button_content}
       media="/3.jpg"
     />
 

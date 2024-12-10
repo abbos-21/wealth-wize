@@ -10,6 +10,7 @@ interface Props {
   media: string;
   mediaType?: string;
   type?: string;
+  buttonLabel: string;
 }
 
 const {
@@ -21,6 +22,7 @@ const {
   media,
   mediaType,
   type,
+  buttonLabel,
 } = Astro.props;
 const isReversed = type === "reversed";
 ---
@@ -33,7 +35,7 @@ const isReversed = type === "reversed";
       class={`row justify-content-between flex-lg-row ${isReversed ? "flex-lg-row-reverse" : "flex-column"}`}
     >
       <div class="col-lg-5 col-12">
-        <p class="title" data-aos="fade-down">{title}</p>
+        <h1 class="title" data-aos="fade-down">{title}</h1>
         <p class="subtitle" data-aos="fade-right">
           {subtitle}
         </p>
@@ -50,7 +52,7 @@ const isReversed = type === "reversed";
               data-aos="fade-right"
             >
               <Button
-                label="Свяжитесь с нами"
+                label={buttonLabel}
                 variant="outlineGradient"
                 href="#contact"
               />
